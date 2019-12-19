@@ -5,8 +5,9 @@
     <color name="colorAccent">#F4F4F7</color>
 
     <color name="colorWhite">#fff</color>
-    <color name="colorIcon">#707070</color>
+    <color name="colorIcon">#909090</color>
     <color name="colorIconChecked">#00B8D4</color>
+    <color name="colorIconPressed">#00B8D4</color>
     <color name="colorEndGradient">#1a6f82</color>
     <color name="colorStartGradient">#221352</color>
 </resources>

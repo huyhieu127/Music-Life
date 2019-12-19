@@ -1,3 +1,11 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:drawable="@drawable/bg_menu_custom" android:state_pressed="true"/>
+    <item android:state_checked="false" android:state_pressed="true">
+        <animated-rotate
+            android:drawable="@drawable/bg_menu_custom"
+            android:fromDegrees="360"
+            android:pivotX="50%"
+            android:pivotY="50%"
+            android:toDegrees="0"
+            android:duration="1000"/>
+    </item>
 </selector>
