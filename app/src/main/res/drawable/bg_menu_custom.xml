@@ -1,0 +1,9 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:gravity="center"
+        android:width="38dp"
+        android:height="32dp"
+        android:left="-6dp"
+        android:top="-2dp"
+        android:drawable="@drawable/ic_start" />
+</layer-list>
