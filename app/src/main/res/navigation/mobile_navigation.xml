@@ -7,19 +7,19 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.kotlin.musiclife.ui.home.HomeFragment"
+        android:name="com.kotlin.musiclife.fragments.home.HomeFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="com.kotlin.musiclife.ui.dashboard.DashboardFragment"
+        android:name="com.kotlin.musiclife.fragments.dashboard.DashboardFragment"
         android:label="@string/title_dashboard"
         tools:layout="@layout/fragment_dashboard" />
 
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="com.kotlin.musiclife.ui.notifications.NotificationsFragment"
+        android:name="com.kotlin.musiclife.fragments.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
 </navigation>

@@ -1,4 +1,4 @@
-package com.kotlin.musiclife.ui.notifications
+package com.kotlin.musiclife.fragments.notifications
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
