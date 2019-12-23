@@ -1,8 +1,9 @@
 package com.kotlin.musiclife.base
 
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.kotlin.musiclife.R
+import com.kotlin.musiclife.utils.extensions.showToastLong
 
 abstract class BaseActivity : AppCompatActivity() {
 
@@ -19,7 +20,8 @@ abstract class BaseActivity : AppCompatActivity() {
             addControl()
             addEvent()
         }else{
-            Toast.makeText(this,"Layout error", Toast.LENGTH_SHORT).show()
+            showToastLong(getString(R.string.not_found_activity))
         }
     }
+
 }

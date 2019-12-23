@@ -5,25 +5,29 @@ import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.kotlin.musiclife.R
+import com.kotlin.musiclife.utils.extensions.*
 
-public abstract class BaseFragment : Fragment() {
-
-    private var activity: BaseActivity? = null
+abstract class BaseFragment : Fragment() {
+    protected lateinit var mActivity: BaseActivity
     protected abstract fun getLayoutID(): Int
     protected abstract fun addControl()
     protected abstract fun addEvent()
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        lateinit var view:View
-        activity = getActivity() as BaseActivity?
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        lateinit var view: View
+        mActivity = getActivity() as BaseActivity
         if (getLayoutID() > 0) {
             view = inflater.inflate(getLayoutID(), container, false)
             handleBackDevice(view)
             addControl()
         } else {
-            Toast.makeText(activity,"Layout error", Toast.LENGTH_SHORT).show()
+            mActivity.showToastLong(getString(R.string.not_found_fragment))
         }
         return view
     }
@@ -38,7 +42,7 @@ public abstract class BaseFragment : Fragment() {
     private fun handleBackDevice(view: View) {
         view.isFocusableInTouchMode = true
         view.requestFocus()
-        view.setOnKeyListener { v: View?, keyCode: Int, event: KeyEvent ->
+        view.setOnKeyListener { _: View?, keyCode: Int, event: KeyEvent ->
             if (event.action == KeyEvent.ACTION_UP) {
                 if (keyCode == KeyEvent.KEYCODE_BACK) { //On back event Fragment
                     onBackFragment()
@@ -50,7 +54,7 @@ public abstract class BaseFragment : Fragment() {
     }
 
     open fun onBackFragment() {
-        activity!!.onBackPressed()
+        mActivity.onBackPressed()
     }
 
 }

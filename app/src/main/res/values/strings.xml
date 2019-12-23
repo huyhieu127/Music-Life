@@ -7,4 +7,7 @@
     <string name="playlists">Playlists</string>
     <string name="songs">Songs</string>
     <string name="genres">Genres</string>
+    <string name="text_exit_app">Double click on the back key to exit</string>
+    <string name="not_found_fragment">Not found layout this fragment!</string>
+    <string name="not_found_activity">Not found layout this activity!</string>
 </resources>
