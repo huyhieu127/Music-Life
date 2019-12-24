@@ -11,7 +11,7 @@ import com.kotlin.musiclife.adapters.TabLibraryAdapter.OnClickItemListener
 import com.kotlin.musiclife.base.BaseFragment
 import com.kotlin.musiclife.models.TabLibraryClass
 import com.kotlin.musiclife.utils.commons.StartSnapHelper
-import com.kotlin.musiclife.utils.extensions.showToastShort
+import com.kotlin.musiclife.utils.extensions.*
 import com.kotlin.musiclife.viewmodels.LibraryViewModel
 import kotlinx.android.synthetic.main.fragment_library.*
 
@@ -33,8 +33,7 @@ class LibraryFragment : BaseFragment() {
     }
 
     private fun initRecyclerView() {
-        rcv.layoutManager =
-            LinearLayoutManager(mActivity, LinearLayoutManager.HORIZONTAL, false)
+        rcv.layoutManager = LinearLayoutManager(mActivity, LinearLayoutManager.HORIZONTAL, false)
         rcv.setHasFixedSize(true)
         val adapter = TabLibraryAdapter(mActivity, list)
         rcv.adapter = adapter
@@ -47,32 +46,28 @@ class LibraryFragment : BaseFragment() {
                 }
             }
         })
+        /*Auto move item focus to center*/
         StartSnapHelper().attachToRecyclerView(rcv)
-
     }
 
     private fun initFragment(view: View) {
         rcv = view.findViewById(R.id.rcvTabLibrary) as RecyclerView
         list = ArrayList()
         libraryViewModel = ViewModelProviders.of(this).get(LibraryViewModel::class.java)
-
     }
 
     private fun handleViewModel() {
         libraryViewModel.getListTab().observe(this, Observer<ArrayList<TabLibraryClass>> {
             list = it
             rcv.adapter!!.notifyDataSetChanged()
-        });
+        })
         libraryViewModel.text.observe(this, Observer {
             text_home.text = it
         })
     }
 
     override fun addEvent() {
-        list.add(TabLibraryClass("Discover", true))
-        list.add(TabLibraryClass("Playlist", false))
-        list.add(TabLibraryClass("Songs", false))
-        list.add(TabLibraryClass("Genres", false))
+        list.setItem(list)
         libraryViewModel.addListTab(list)
     }
 
