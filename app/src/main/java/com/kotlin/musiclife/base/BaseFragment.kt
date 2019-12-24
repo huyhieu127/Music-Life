@@ -21,7 +21,7 @@ abstract class BaseFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         lateinit var view: View
-        mActivity = getActivity() as BaseActivity
+        mActivity = activity as BaseActivity
         if (getLayoutID() > 0) {
             view = inflater.inflate(getLayoutID(), container, false)
             handleBackDevice(view)

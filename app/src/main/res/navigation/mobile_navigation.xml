@@ -3,13 +3,26 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@id/navigation_library">
 
     <fragment
-        android:id="@+id/navigation_home"
+        android:id="@+id/navigation_library"
         android:name="com.kotlin.musiclife.fragments.LibraryFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_library" />
+        tools:layout="@layout/fragment_library" >
+        <action
+            android:id="@+id/action_navigation_library_to_discoverFragment"
+            app:destination="@+id/discoverFragment" />
+        <action
+            android:id="@+id/action_navigation_library_to_playlistFragment"
+            app:destination="@id/playlistFragment" />
+        <action
+            android:id="@+id/action_navigation_library_to_songFragment"
+            app:destination="@id/songFragment" />
+        <action
+            android:id="@+id/action_navigation_library_to_genesFragment"
+            app:destination="@id/genesFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_dashboard"
@@ -22,4 +35,24 @@
         android:name="com.kotlin.musiclife.fragments.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
+    <fragment
+        android:id="@+id/discoverFragment"
+        android:name="com.kotlin.musiclife.fragments.DiscoverFragment"
+        android:label="fragment_discover"
+        tools:layout="@layout/fragment_discover" />
+    <fragment
+        android:id="@+id/playlistFragment"
+        android:name="com.kotlin.musiclife.fragments.PlaylistFragment"
+        android:label="fragment_playlist"
+        tools:layout="@layout/fragment_playlist" />
+    <fragment
+        android:id="@+id/songFragment"
+        android:name="com.kotlin.musiclife.fragments.SongFragment"
+        android:label="fragment_song"
+        tools:layout="@layout/fragment_song" />
+    <fragment
+        android:id="@+id/genesFragment"
+        android:name="com.kotlin.musiclife.fragments.GenesFragment"
+        android:label="fragment_genes"
+        tools:layout="@layout/fragment_genes" />
 </navigation>

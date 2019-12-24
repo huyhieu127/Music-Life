@@ -11,4 +11,7 @@
     <string name="not_found_fragment">Not found layout this fragment!</string>
     <string name="not_found_activity">Not found layout this activity!</string>
     <string name="textview">TextView</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
