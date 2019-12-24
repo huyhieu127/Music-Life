@@ -42,22 +42,25 @@ class TabLibraryAdapter(var context: Context, var listTabs: ArrayList<TabLibrary
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.tvTitle.text = listTabs[position].title
         if (listTabs[position].isChecked) {
+            /*Set view item selected*/
             holder.tvTitle.setTextColor(context.getColor(R.color.colorWhite))
             holder.tvTitle.background = context.getDrawable(R.drawable.bg_gradient)
         } else {
+            /*Set view item unselected*/
             holder.tvTitle.setTextColor(context.getColor(R.color.colorStartGradient))
             holder.tvTitle.setBackgroundColor(0)
             holder.tvTitle.setOnClickListener {
-                for (i in 0 until itemCount) {
-                    if (listTabs[i].isChecked) {
-                        listTabs[i].isChecked = false
-                    }
-                }
+                /*Clear flag clicked*/
+                refreshArray(listTabs)
+                /*Reset flag click*/
                 listTabs[position].isChecked = true
+                /*Get event click item*/
                 listener.onClick(position)
+                /*Refresh adapter*/
                 notifyDataSetChanged()
             }
         }
+        /*Set padding item in start and end*/
         if (position == 0) {
             holder.fltab.setPadding(60, 0, 0, 0)
         }
@@ -65,7 +68,16 @@ class TabLibraryAdapter(var context: Context, var listTabs: ArrayList<TabLibrary
             holder.fltab.setPadding(0, 0, 60, 0)
         }
     }
-    interface OnClickItemListener{
+
+    private fun refreshArray(listTabs: ArrayList<TabLibraryClass>) {
+        for (i in 0 until itemCount) {
+            if (listTabs[i].isChecked) {
+                listTabs[i].isChecked = false
+            }
+        }
+    }
+
+    interface OnClickItemListener {
         fun onClick(position: Int)
     }
 }
