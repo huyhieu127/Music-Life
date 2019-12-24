@@ -6,4 +6,6 @@
     <dimen name="space_15dp">15dp</dimen>
     <dimen name="space_18dp">18dp</dimen>
     <dimen name="space_3dp">3dp</dimen>
+    <dimen name="size_30dp">30dp</dimen>
+    <dimen name="size_5dp">5dp</dimen>
 </resources>

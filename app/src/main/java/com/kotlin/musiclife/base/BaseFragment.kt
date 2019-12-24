@@ -12,7 +12,7 @@ import com.kotlin.musiclife.utils.extensions.*
 abstract class BaseFragment : Fragment() {
     protected lateinit var mActivity: BaseActivity
     protected abstract fun getLayoutID(): Int
-    protected abstract fun addControl()
+    protected abstract fun addControl(view: View)
     protected abstract fun addEvent()
 
     override fun onCreateView(
@@ -25,7 +25,7 @@ abstract class BaseFragment : Fragment() {
         if (getLayoutID() > 0) {
             view = inflater.inflate(getLayoutID(), container, false)
             handleBackDevice(view)
-            addControl()
+            addControl(view)
         } else {
             mActivity.showToastLong(getString(R.string.not_found_fragment))
         }

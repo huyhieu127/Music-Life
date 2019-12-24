@@ -7,9 +7,9 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.kotlin.musiclife.fragments.SubscriptionsFragment"
+        android:name="com.kotlin.musiclife.fragments.LibraryFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_subscriptions" />
+        tools:layout="@layout/fragment_library" />
 
     <fragment
         android:id="@+id/navigation_dashboard"

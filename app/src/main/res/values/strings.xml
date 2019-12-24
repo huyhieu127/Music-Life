@@ -10,4 +10,5 @@
     <string name="text_exit_app">Double click on the back key to exit</string>
     <string name="not_found_fragment">Not found layout this fragment!</string>
     <string name="not_found_activity">Not found layout this activity!</string>
+    <string name="textview">TextView</string>
 </resources>

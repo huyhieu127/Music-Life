@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/flTab"
+    android:layout_width="wrap_content"
+    android:layout_height="?actionBarSize">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="@dimen/size_5dp"
+        android:layout_marginEnd="@dimen/size_5dp"
+        android:orientation="vertical"
+        app:cardCornerRadius="@dimen/space_15dp"
+        app:cardElevation="0dp">
+
+        <TextView
+            android:textStyle="bold"
+            android:id="@+id/tvTitleTab"
+            android:layout_width="100dp"
+            android:layout_height="@dimen/size_30dp"
+            android:background="@drawable/bg_gradient"
+            android:gravity="center"
+            android:text="@string/textview"
+            android:textColor="@color/colorWhite" />
+    </androidx.cardview.widget.CardView>
+</FrameLayout>
