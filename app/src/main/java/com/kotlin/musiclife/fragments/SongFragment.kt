@@ -18,7 +18,7 @@ class SongFragment : BaseFragment() {
     override fun addControl(view: View) {
     }
 
-    override fun addEvent() {
+    override fun addEvent(view: View) {
     }
 
 }

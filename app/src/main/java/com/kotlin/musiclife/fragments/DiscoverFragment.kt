@@ -19,7 +19,10 @@ class DiscoverFragment : BaseFragment() {
     override fun addControl(view: View) {
     }
 
-    override fun addEvent() {
+    override fun addEvent(view: View) {
     }
 
+    override fun onBackFragment() {
+        super.onBackFragment()
+    }
 }

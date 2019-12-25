@@ -13,7 +13,7 @@ abstract class BaseFragment : Fragment() {
     protected lateinit var mActivity: BaseActivity
     protected abstract fun getLayoutID(): Int
     protected abstract fun addControl(view: View)
-    protected abstract fun addEvent()
+    protected abstract fun addEvent(view: View)
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -35,7 +35,7 @@ abstract class BaseFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         if (getLayoutID() > 0) {
-            addEvent()
+            addEvent(view)
         }
     }
 

@@ -3,6 +3,10 @@ package com.kotlin.musiclife.fragments
 import android.view.View
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.NavController
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.NavHostFragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.kotlin.musiclife.R
@@ -11,9 +15,10 @@ import com.kotlin.musiclife.adapters.TabLibraryAdapter.OnClickItemListener
 import com.kotlin.musiclife.base.BaseFragment
 import com.kotlin.musiclife.models.TabLibraryClass
 import com.kotlin.musiclife.utils.commons.StartSnapHelper
-import com.kotlin.musiclife.utils.extensions.*
+import com.kotlin.musiclife.utils.extensions.setItem
+import com.kotlin.musiclife.utils.extensions.showToastLong
+import com.kotlin.musiclife.utils.extensions.showToastShort
 import com.kotlin.musiclife.viewmodels.LibraryViewModel
-import kotlinx.android.synthetic.main.fragment_library.*
 
 
 class LibraryFragment : BaseFragment() {
@@ -21,6 +26,7 @@ class LibraryFragment : BaseFragment() {
     private lateinit var libraryViewModel: LibraryViewModel
     lateinit var list: ArrayList<TabLibraryClass>
     lateinit var rcv: RecyclerView
+    lateinit var navController:NavController
 
     override fun getLayoutID(): Int {
         return R.layout.fragment_library
@@ -44,10 +50,20 @@ class LibraryFragment : BaseFragment() {
                 } else {
                     rcv.smoothScrollToPosition(0)
                 }
+                chooseTab(position)
             }
         })
         /*Auto move item focus to center*/
         StartSnapHelper().attachToRecyclerView(rcv)
+    }
+
+    private fun chooseTab(position: Int) {
+        when(position){
+            0 -> navController.navigate(R.id.discoverFragment)
+            1 -> navController.navigate(R.id.playlistFragment)
+            2 -> navController.navigate(R.id.songFragment)
+            3 -> navController.navigate(R.id.genesFragment)
+        }
     }
 
     private fun initFragment(view: View) {
@@ -61,17 +77,19 @@ class LibraryFragment : BaseFragment() {
             list = it
             rcv.adapter!!.notifyDataSetChanged()
         })
-        libraryViewModel.text.observe(this, Observer {
-            text_home.text = it
-        })
     }
 
-    override fun addEvent() {
+    override fun addEvent(view: View) {
+        navController= mActivity.findNavController(R.id.navTabLibrary)
+        mActivity.showToastLong("${navController.currentDestination!!.label}")
+        /*Tab default*/
+        chooseTab(0)
         list.setItem(list)
         libraryViewModel.addListTab(list)
     }
 
     override fun onBackFragment() {
-        mActivity.showToastShort(getString(R.string.text_exit_app))
+        super.onBackFragment()
+        mActivity.showToastShort("0")
     }
 }

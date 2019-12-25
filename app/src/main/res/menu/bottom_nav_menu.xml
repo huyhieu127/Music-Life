@@ -4,7 +4,7 @@
     <item
         android:id="@+id/navigation_library"
         android:icon="@drawable/ic_menu_play"
-        android:title="@string/title_home"/>
+        android:title="@string/title_library"/>
 
     <item
         android:id="@+id/navigation_dashboard"
