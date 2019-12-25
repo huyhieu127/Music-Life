@@ -3,15 +3,14 @@
     <string name="title_library">Library</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
-    <string name="discover">Discover</string>
-    <string name="playlists">Playlists</string>
-    <string name="songs">Songs</string>
-    <string name="genres">Genres</string>
     <string name="text_exit_app">Double click on the back key to exit</string>
     <string name="not_found_fragment">Not found layout this fragment!</string>
     <string name="not_found_activity">Not found layout this activity!</string>
     <string name="textview">TextView</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="discover">Discover</string>
+    <string name="playlist">Playlist</string>
+    <string name="songs">Songs</string>
+    <string name="genres">Genres</string>
 </resources>

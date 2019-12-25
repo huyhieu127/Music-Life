@@ -84,7 +84,7 @@ class LibraryFragment : BaseFragment() {
         mActivity.showToastLong("${navController.currentDestination!!.label}")
         /*Tab default*/
         chooseTab(0)
-        list.setItem(list)
+        list.setItem(mActivity, list)
         libraryViewModel.addListTab(list)
     }
 
